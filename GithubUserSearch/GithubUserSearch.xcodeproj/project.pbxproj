@@ -18,6 +18,7 @@
 		C883AA412A0A21F5006A9719 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA402A0A21F5006A9719 /* Then */; };
 		C883AA442A0A2389006A9719 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA432A0A2389006A9719 /* RxMoya */; };
 		C883AA4C2A0A3379006A9719 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA4B2A0A3379006A9719 /* UserListViewController.swift */; };
+		C883AA4F2A0A360B006A9719 /* SuperEasyLayout in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA4E2A0A360B006A9719 /* SuperEasyLayout */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C883AA4F2A0A360B006A9719 /* SuperEasyLayout in Frameworks */,
 				C883AA442A0A2389006A9719 /* RxMoya in Frameworks */,
 				C883AA412A0A21F5006A9719 /* Then in Frameworks */,
 			);
@@ -198,6 +200,7 @@
 			packageProductDependencies = (
 				C883AA402A0A21F5006A9719 /* Then */,
 				C883AA432A0A2389006A9719 /* RxMoya */,
+				C883AA4E2A0A360B006A9719 /* SuperEasyLayout */,
 			);
 			productName = GithubUserSearch;
 			productReference = C883AA0C2A0A204E006A9719 /* GithubUserSearch.app */;
@@ -274,6 +277,7 @@
 			packageReferences = (
 				C883AA3F2A0A21F5006A9719 /* XCRemoteSwiftPackageReference "Then" */,
 				C883AA422A0A2389006A9719 /* XCRemoteSwiftPackageReference "Moya" */,
+				C883AA4D2A0A360B006A9719 /* XCRemoteSwiftPackageReference "SuperEasyLayout" */,
 			);
 			productRefGroup = C883AA0D2A0A204E006A9719 /* Products */;
 			projectDirPath = "";
@@ -682,6 +686,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		C883AA4D2A0A360B006A9719 /* XCRemoteSwiftPackageReference "SuperEasyLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/doil6317/SuperEasyLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -694,6 +706,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C883AA422A0A2389006A9719 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		C883AA4E2A0A360B006A9719 /* SuperEasyLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C883AA4D2A0A360B006A9719 /* XCRemoteSwiftPackageReference "SuperEasyLayout" */;
+			productName = SuperEasyLayout;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
