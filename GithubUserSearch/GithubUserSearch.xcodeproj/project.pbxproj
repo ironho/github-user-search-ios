@@ -19,6 +19,8 @@
 		C883AA442A0A2389006A9719 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA432A0A2389006A9719 /* RxMoya */; };
 		C883AA4C2A0A3379006A9719 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA4B2A0A3379006A9719 /* UserListViewController.swift */; };
 		C883AA4F2A0A360B006A9719 /* SuperEasyLayout in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA4E2A0A360B006A9719 /* SuperEasyLayout */; };
+		C883AA532A0A5569006A9719 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA522A0A5569006A9719 /* UserListViewModel.swift */; };
+		C883AA562A0A5B9A006A9719 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA552A0A5B9A006A9719 /* User.swift */; };
 		C883AA592A0A5C52006A9719 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA582A0A5C52006A9719 /* RxCocoa */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		C883AA302A0A2050006A9719 /* GithubUserSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchUITests.swift; sourceTree = "<group>"; };
 		C883AA322A0A2050006A9719 /* GithubUserSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C883AA4B2A0A3379006A9719 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		C883AA522A0A5569006A9719 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		C883AA552A0A5B9A006A9719 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 		C883AA482A0A30D8006A9719 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C883AA542A0A5B88006A9719 /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -178,9 +183,34 @@
 		C883AA4A2A0A317C006A9719 /* UserScene */ = {
 			isa = PBXGroup;
 			children = (
-				C883AA4B2A0A3379006A9719 /* UserListViewController.swift */,
+				C883AA512A0A5550006A9719 /* ViewModel */,
+				C883AA502A0A554B006A9719 /* View */,
 			);
 			path = UserScene;
+			sourceTree = "<group>";
+		};
+		C883AA502A0A554B006A9719 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C883AA4B2A0A3379006A9719 /* UserListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C883AA512A0A5550006A9719 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C883AA522A0A5569006A9719 /* UserListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C883AA542A0A5B88006A9719 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C883AA552A0A5B9A006A9719 /* User.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,7 +357,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C883AA102A0A204E006A9719 /* AppDelegate.swift in Sources */,
+				C883AA532A0A5569006A9719 /* UserListViewModel.swift in Sources */,
 				C883AA122A0A204E006A9719 /* SceneDelegate.swift in Sources */,
+				C883AA562A0A5B9A006A9719 /* User.swift in Sources */,
 				C883AA4C2A0A3379006A9719 /* UserListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
