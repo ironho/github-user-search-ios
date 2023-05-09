@@ -19,6 +19,7 @@
 		C883AA442A0A2389006A9719 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA432A0A2389006A9719 /* RxMoya */; };
 		C883AA4C2A0A3379006A9719 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA4B2A0A3379006A9719 /* UserListViewController.swift */; };
 		C883AA4F2A0A360B006A9719 /* SuperEasyLayout in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA4E2A0A360B006A9719 /* SuperEasyLayout */; };
+		C883AA592A0A5C52006A9719 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA582A0A5C52006A9719 /* RxCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 			files = (
 				C883AA4F2A0A360B006A9719 /* SuperEasyLayout in Frameworks */,
 				C883AA442A0A2389006A9719 /* RxMoya in Frameworks */,
+				C883AA592A0A5C52006A9719 /* RxCocoa in Frameworks */,
 				C883AA412A0A21F5006A9719 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +203,7 @@
 				C883AA402A0A21F5006A9719 /* Then */,
 				C883AA432A0A2389006A9719 /* RxMoya */,
 				C883AA4E2A0A360B006A9719 /* SuperEasyLayout */,
+				C883AA582A0A5C52006A9719 /* RxCocoa */,
 			);
 			productName = GithubUserSearch;
 			productReference = C883AA0C2A0A204E006A9719 /* GithubUserSearch.app */;
@@ -278,6 +281,7 @@
 				C883AA3F2A0A21F5006A9719 /* XCRemoteSwiftPackageReference "Then" */,
 				C883AA422A0A2389006A9719 /* XCRemoteSwiftPackageReference "Moya" */,
 				C883AA4D2A0A360B006A9719 /* XCRemoteSwiftPackageReference "SuperEasyLayout" */,
+				C883AA572A0A5C52006A9719 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = C883AA0D2A0A204E006A9719 /* Products */;
 			projectDirPath = "";
@@ -694,6 +698,14 @@
 				minimumVersion = 0.3.0;
 			};
 		};
+		C883AA572A0A5C52006A9719 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -711,6 +723,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C883AA4D2A0A360B006A9719 /* XCRemoteSwiftPackageReference "SuperEasyLayout" */;
 			productName = SuperEasyLayout;
+		};
+		C883AA582A0A5C52006A9719 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C883AA572A0A5C52006A9719 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
