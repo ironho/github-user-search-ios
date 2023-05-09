@@ -30,6 +30,7 @@ class UserListViewController: UIViewController {
     private lazy var tableView = UITableView().then {
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
+        $0.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     override func viewDidLoad() {
@@ -45,35 +46,42 @@ class UserListViewController: UIViewController {
 extension UserListViewController {
     
     func setupNavigationBarAppearance() {
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .purple
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        let appearance = UINavigationBarAppearance().with {
+            $0.backgroundColor = .purple
+            $0.titleTextAttributes = [.foregroundColor: UIColor.white]
+            $0.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        }
         
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.do {
+            $0.tintColor = .white
+            $0.standardAppearance = appearance
+            $0.compactAppearance = appearance
+            $0.scrollEdgeAppearance = appearance
+        }
     }
     
     private func setupViews() {
         navigationItem.title = "Github"
         
         searchContainer.addSubview(searchController.searchBar)
-        view.addSubview(searchContainer)
-        view.addSubview(tableView)
-        
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        view.do {
+            $0.addSubview(searchContainer)
+            $0.addSubview(tableView)
+        }
 
-        searchContainer.left == view.left
-        searchContainer.right == view.right
-        searchContainer.top == view.safeAreaLayoutGuide.top
-        searchContainer.height == 56.0
+        searchContainer.do {
+            $0.left == view.left
+            $0.right == view.right
+            $0.top == view.safeAreaLayoutGuide.top
+            $0.height == 56.0
+        }
         
-        tableView.left == view.left
-        tableView.right == view.right
-        tableView.top == searchContainer.bottom
-        tableView.bottom == view.safeAreaLayoutGuide.bottom
+        tableView.do {
+            $0.left == view.left
+            $0.right == view.right
+            $0.top == searchContainer.bottom
+            $0.bottom == view.safeAreaLayoutGuide.bottom
+        }
     }
     
 }
