@@ -16,6 +16,8 @@
 		C883AA272A0A2050006A9719 /* GithubUserSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA262A0A2050006A9719 /* GithubUserSearchTests.swift */; };
 		C883AA312A0A2050006A9719 /* GithubUserSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA302A0A2050006A9719 /* GithubUserSearchUITests.swift */; };
 		C883AA332A0A2050006A9719 /* GithubUserSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA322A0A2050006A9719 /* GithubUserSearchUITestsLaunchTests.swift */; };
+		C883AA412A0A21F5006A9719 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA402A0A21F5006A9719 /* Then */; };
+		C883AA442A0A2389006A9719 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA432A0A2389006A9719 /* RxMoya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C883AA442A0A2389006A9719 /* RxMoya in Frameworks */,
+				C883AA412A0A21F5006A9719 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +147,10 @@
 			dependencies = (
 			);
 			name = GithubUserSearch;
+			packageProductDependencies = (
+				C883AA402A0A21F5006A9719 /* Then */,
+				C883AA432A0A2389006A9719 /* RxMoya */,
+			);
 			productName = GithubUserSearch;
 			productReference = C883AA0C2A0A204E006A9719 /* GithubUserSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +223,10 @@
 				Base,
 			);
 			mainGroup = C883AA032A0A204E006A9719;
+			packageReferences = (
+				C883AA3F2A0A21F5006A9719 /* XCRemoteSwiftPackageReference "Then" */,
+				C883AA422A0A2389006A9719 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = C883AA0D2A0A204E006A9719 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -604,6 +616,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C883AA3F2A0A21F5006A9719 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		C883AA422A0A2389006A9719 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C883AA402A0A21F5006A9719 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C883AA3F2A0A21F5006A9719 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		C883AA432A0A2389006A9719 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C883AA422A0A2389006A9719 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C883AA042A0A204E006A9719 /* Project object */;
 }
