@@ -103,13 +103,12 @@
 		C883AA0E2A0A204E006A9719 /* GithubUserSearch */ = {
 			isa = PBXGroup;
 			children = (
-				C883AA0F2A0A204E006A9719 /* AppDelegate.swift */,
-				C883AA112A0A204E006A9719 /* SceneDelegate.swift */,
-				C883AA132A0A204E006A9719 /* ViewController.swift */,
-				C883AA152A0A204E006A9719 /* Main.storyboard */,
-				C883AA182A0A2050006A9719 /* Assets.xcassets */,
-				C883AA1A2A0A2050006A9719 /* LaunchScreen.storyboard */,
 				C883AA1D2A0A2050006A9719 /* Info.plist */,
+				C883AA452A0A30B4006A9719 /* Application */,
+				C883AA462A0A30C4006A9719 /* Common */,
+				C883AA472A0A30CF006A9719 /* Data */,
+				C883AA482A0A30D8006A9719 /* Domain */,
+				C883AA492A0A30DF006A9719 /* Presenter */,
 			);
 			path = GithubUserSearch;
 			sourceTree = "<group>";
@@ -129,6 +128,55 @@
 				C883AA322A0A2050006A9719 /* GithubUserSearchUITestsLaunchTests.swift */,
 			);
 			path = GithubUserSearchUITests;
+			sourceTree = "<group>";
+		};
+		C883AA452A0A30B4006A9719 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C883AA0F2A0A204E006A9719 /* AppDelegate.swift */,
+				C883AA112A0A204E006A9719 /* SceneDelegate.swift */,
+				C883AA182A0A2050006A9719 /* Assets.xcassets */,
+				C883AA132A0A204E006A9719 /* ViewController.swift */,
+				C883AA152A0A204E006A9719 /* Main.storyboard */,
+				C883AA1A2A0A2050006A9719 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		C883AA462A0A30C4006A9719 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C883AA472A0A30CF006A9719 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C883AA482A0A30D8006A9719 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C883AA492A0A30DF006A9719 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C883AA4A2A0A317C006A9719 /* UserScene */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C883AA4A2A0A317C006A9719 /* UserScene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
