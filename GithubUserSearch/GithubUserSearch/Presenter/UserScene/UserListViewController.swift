@@ -46,7 +46,7 @@ class UserListViewController: UIViewController {
 extension UserListViewController {
     
     func setupNavigationBarAppearance() {
-        let appearance = UINavigationBarAppearance().with {
+        let appearance = UINavigationBarAppearance().then {
             $0.backgroundColor = .purple
             $0.titleTextAttributes = [.foregroundColor: UIColor.white]
             $0.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
