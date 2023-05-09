@@ -22,6 +22,10 @@
 		C883AA532A0A5569006A9719 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA522A0A5569006A9719 /* UserListViewModel.swift */; };
 		C883AA562A0A5B9A006A9719 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA552A0A5B9A006A9719 /* User.swift */; };
 		C883AA592A0A5C52006A9719 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C883AA582A0A5C52006A9719 /* RxCocoa */; };
+		C883AA5C2A0A5FCC006A9719 /* UserListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA5B2A0A5FCC006A9719 /* UserListUseCase.swift */; };
+		C883AA5F2A0A5FFB006A9719 /* UserListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA5E2A0A5FFB006A9719 /* UserListRepository.swift */; };
+		C883AA612A0A607D006A9719 /* SearchUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA602A0A607D006A9719 /* SearchUsersResponse.swift */; };
+		C883AA642A0A638E006A9719 /* UserListTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA632A0A638E006A9719 /* UserListTargetType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		C883AA4B2A0A3379006A9719 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		C883AA522A0A5569006A9719 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		C883AA552A0A5B9A006A9719 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C883AA5B2A0A5FCC006A9719 /* UserListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListUseCase.swift; sourceTree = "<group>"; };
+		C883AA5E2A0A5FFB006A9719 /* UserListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRepository.swift; sourceTree = "<group>"; };
+		C883AA602A0A607D006A9719 /* SearchUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUsersResponse.swift; sourceTree = "<group>"; };
+		C883AA632A0A638E006A9719 /* UserListTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTargetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +168,8 @@
 		C883AA472A0A30CF006A9719 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C883AA622A0A6365006A9719 /* Network */,
+				C883AA5D2A0A5FED006A9719 /* Repositories */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -167,6 +177,7 @@
 		C883AA482A0A30D8006A9719 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C883AA5A2A0A5F97006A9719 /* UseCases */,
 				C883AA542A0A5B88006A9719 /* Entities */,
 			);
 			path = Domain;
@@ -209,8 +220,33 @@
 			isa = PBXGroup;
 			children = (
 				C883AA552A0A5B9A006A9719 /* User.swift */,
+				C883AA602A0A607D006A9719 /* SearchUsersResponse.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		C883AA5A2A0A5F97006A9719 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				C883AA5B2A0A5FCC006A9719 /* UserListUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		C883AA5D2A0A5FED006A9719 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C883AA5E2A0A5FFB006A9719 /* UserListRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C883AA622A0A6365006A9719 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C883AA632A0A638E006A9719 /* UserListTargetType.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,8 +395,12 @@
 				C883AA102A0A204E006A9719 /* AppDelegate.swift in Sources */,
 				C883AA532A0A5569006A9719 /* UserListViewModel.swift in Sources */,
 				C883AA122A0A204E006A9719 /* SceneDelegate.swift in Sources */,
+				C883AA612A0A607D006A9719 /* SearchUsersResponse.swift in Sources */,
 				C883AA562A0A5B9A006A9719 /* User.swift in Sources */,
+				C883AA5C2A0A5FCC006A9719 /* UserListUseCase.swift in Sources */,
 				C883AA4C2A0A3379006A9719 /* UserListViewController.swift in Sources */,
+				C883AA5F2A0A5FFB006A9719 /* UserListRepository.swift in Sources */,
+				C883AA642A0A638E006A9719 /* UserListTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
