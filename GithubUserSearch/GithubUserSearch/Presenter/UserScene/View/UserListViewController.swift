@@ -30,8 +30,7 @@ class UserListViewController: UIViewController {
         definesPresentationContext = true
     }
     
-    private lazy var searchContainer = UIView().then { _ in
-    }
+    private lazy var searchContainer = UIView()
     
     private lazy var tableView = UITableView().then {
         $0.rowHeight = UITableView.automaticDimension
