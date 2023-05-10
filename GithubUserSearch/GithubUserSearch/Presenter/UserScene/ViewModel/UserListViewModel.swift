@@ -75,7 +75,7 @@ extension UserListViewModel {
             .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .subscribe(onNext: { (owner, response) in
-                owner.items.accept(owner.items.value + response.items)
+                owner.items.accept(owner.items.value + (response.items ?? []))
                 owner.isPagingEnded.accept(owner.items.value.count == response.total_count)
                 owner.isEmpty.accept(response.total_count == 0)
                 owner.isLoading.accept(false)
