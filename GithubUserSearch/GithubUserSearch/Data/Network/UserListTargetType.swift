@@ -12,7 +12,7 @@ import Moya
 struct UserListTargetType: TargetType {
     
     var baseURL = URL(string: "https://api.github.com")!
-    var path: String { "search/users?q=\(query)&page=\(page)" }
+    var path: String { "search/users" }
     var method: Moya.Method = .get
     var sampleData = """
     {
@@ -43,15 +43,13 @@ struct UserListTargetType: TargetType {
       ]
     }
     """.data(using: .utf8)!
-    var task: Task = .requestPlain
+    var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.queryString) }
     var headers: [String: String]? = ["accept": "application/vnd.github+json"]
     
-    var query: String
-    var page: Int
+    var parameters: [String: String] = [: ]
     
     init(query: String, page: Int) {
-        self.query = query
-        self.page = page
+        self.parameters = ["q": query, "page": "\(page)"]
     }
     
 }
