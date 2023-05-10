@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Alamofire
 import SuperEasyLayout
 import Then
 
@@ -60,6 +61,10 @@ class UserListCell: UITableViewCell {
     public var user: User? {
         didSet {
             guard let user = user else { return }
+            if let encodedUrl = user.avatar_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                let avatarUrl = URL(string: encodedUrl) {
+                
+            }
             nameLabel.text = user.login
             urlLabel.text = user.html_url
         }
