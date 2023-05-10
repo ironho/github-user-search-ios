@@ -26,6 +26,7 @@
 		C883AA5F2A0A5FFB006A9719 /* UserListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA5E2A0A5FFB006A9719 /* UserListRepository.swift */; };
 		C883AA612A0A607D006A9719 /* SearchUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA602A0A607D006A9719 /* SearchUsersResponse.swift */; };
 		C883AA642A0A638E006A9719 /* UserListTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA632A0A638E006A9719 /* UserListTargetType.swift */; };
+		C883AA662A0A6AB5006A9719 /* UserListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA652A0A6AB5006A9719 /* UserListUseCaseTests.swift */; };
 		C8BADCC52A0A764700A44DA0 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C8BADCC42A0A764700A44DA0 /* RxBlocking-Dynamic */; };
 		C8BADCC72A0A764700A44DA0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C8BADCC62A0A764700A44DA0 /* RxCocoa */; };
 		C8BADCCB2A0A766500A44DA0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C8BADCCA2A0A766500A44DA0 /* RxCocoa */; };
@@ -84,6 +85,7 @@
 		C883AA5E2A0A5FFB006A9719 /* UserListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRepository.swift; sourceTree = "<group>"; };
 		C883AA602A0A607D006A9719 /* SearchUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUsersResponse.swift; sourceTree = "<group>"; };
 		C883AA632A0A638E006A9719 /* UserListTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTargetType.swift; sourceTree = "<group>"; };
+		C883AA652A0A6AB5006A9719 /* UserListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				C883AA262A0A2050006A9719 /* GithubUserSearchTests.swift */,
+				C883AA652A0A6AB5006A9719 /* UserListUseCaseTests.swift */,
 			);
 			path = GithubUserSearchTests;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C883AA662A0A6AB5006A9719 /* UserListUseCaseTests.swift in Sources */,
 				C883AA272A0A2050006A9719 /* GithubUserSearchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

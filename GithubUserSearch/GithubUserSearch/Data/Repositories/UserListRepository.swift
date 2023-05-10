@@ -17,13 +17,12 @@ protocol UserListRepositoryProtocol {
 
 
 final class UserListRepository {
-    
+    let provider = MoyaProvider<MultiTarget>()
 }
 
 extension UserListRepository: UserListRepositoryProtocol {
     
     func searchUsers(query: String, page: Int) -> Observable<SearchUsersResponse> {
-        let provider = MoyaProvider<MultiTarget>()
         return provider.rx.request(MultiTarget(UserListTargetType(query: query, page: page)))
             .retry(3)
             .asObservable()
