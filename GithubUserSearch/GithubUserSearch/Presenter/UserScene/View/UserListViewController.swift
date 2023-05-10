@@ -74,6 +74,7 @@ class UserListViewController: UIViewController {
         bindItemSelected()
         bindPagination()
         bindEmptyView()
+        bindClearButton()
     }
 }
 
@@ -190,6 +191,21 @@ extension UserListViewController {
         viewModel.isEmpty
             .map { !$0 }
             .bind(to: emptyLabel.rx.isHidden)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindClearButton() {
+        searchController.searchBar.rx.text
+            .map { $0 == "" }
+            .bind(to: searchClearButton.rx.isHidden)
+            .disposed(by: rx.disposeBag)
+        
+        searchClearButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: {
+                $0.0.searchController.searchBar.text = ""
+                $0.0.searchClearButton.isHidden = true
+            })
             .disposed(by: rx.disposeBag)
     }
     
