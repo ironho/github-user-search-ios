@@ -23,6 +23,7 @@ class UserListViewController: UIViewController {
         $0.searchBar.delegate = self
         $0.searchBar.placeholder = "유저 검색"
         $0.searchBar.searchTextField.clearButtonMode = .never
+        $0.searchBar.showsCancelButton = false
         $0.obscuresBackgroundDuringPresentation = false
         $0.searchBar.translatesAutoresizingMaskIntoConstraints = true
         $0.searchBar.barStyle = .default
