@@ -35,6 +35,7 @@ class UserListViewController: UIViewController {
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
         $0.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        $0.register(UserListCell.self, forCellReuseIdentifier: "Cell")
     }
     
     
@@ -53,6 +54,9 @@ class UserListViewController: UIViewController {
         
         setupNavigationBarAppearance()
         setupViews()
+        
+        bindQuery()
+        bindItems()
     }
 }
 
@@ -97,6 +101,25 @@ extension UserListViewController {
             $0.top == searchContainer.bottom
             $0.bottom == view.safeAreaLayoutGuide.bottom
         }
+    }
+    
+}
+
+
+// MARK: - Bind
+extension UserListViewController {
+    
+    private func bindQuery() {
+        viewModel.query
+            .bind(to: searchController.searchBar.rx.text)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindItems() {
+        viewModel.items.bind(to: tableView.rx.items(cellIdentifier: "Cell", cellType: UserListCell.self)) { (row, element, cell) in
+            cell.user = element
+        }
+        .disposed(by: rx.disposeBag)
     }
     
 }
