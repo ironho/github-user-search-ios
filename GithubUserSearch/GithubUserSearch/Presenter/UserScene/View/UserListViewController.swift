@@ -39,6 +39,12 @@ class UserListViewController: UIViewController {
         $0.register(UserListCell.self, forCellReuseIdentifier: "Cell")
     }
     
+    private lazy var emptyLabel = UILabel().then {
+        $0.font = UIFont.preferredFont(forTextStyle: .body)
+        $0.text = "검색된 유저가 없습니다"
+        $0.textAlignment = .center
+    }
+    
     
     // MARK: - Life cycle
     init(viewModel: UserListViewModel) {
@@ -60,6 +66,7 @@ class UserListViewController: UIViewController {
         bindItems()
         bindItemSelected()
         bindPagination()
+        bindEmptyView()
     }
 }
 
@@ -89,6 +96,7 @@ extension UserListViewController {
         view.do {
             $0.addSubview(searchContainer)
             $0.addSubview(tableView)
+            $0.addSubview(emptyLabel)
         }
 
         searchContainer.do {
@@ -103,6 +111,11 @@ extension UserListViewController {
             $0.right == view.right
             $0.top == searchContainer.bottom
             $0.bottom == view.safeAreaLayoutGuide.bottom
+        }
+        
+        emptyLabel.do {
+            $0.centerX == tableView.centerX
+            $0.centerY == tableView.centerY
         }
     }
     
@@ -157,6 +170,13 @@ extension UserListViewController {
             .subscribe(onNext: {
                 $0.0.viewModel.loadNextPage()
             })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindEmptyView() {
+        viewModel.isEmpty
+            .map { !$0 }
+            .bind(to: emptyLabel.rx.isHidden)
             .disposed(by: rx.disposeBag)
     }
     
