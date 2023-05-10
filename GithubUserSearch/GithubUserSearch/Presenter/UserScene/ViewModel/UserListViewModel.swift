@@ -7,6 +7,7 @@
 
 import Foundation
 
+import NSObject_Rx
 import RxCocoa
 import RxSwift
 
@@ -29,7 +30,19 @@ protocol UserListViewModelOutput {
 
 typealias UserListViewModelProtocol = UserListViewModelInput & UserListViewModelOutput
 
-final class UserListViewModel: UserListViewModelProtocol {
+final class UserListViewModel: NSObject, UserListViewModelProtocol {
+    
+    var currentPage: Int = 0
+    var nextPage: Int {
+        currentPage = currentPage + 1
+        return currentPage
+    }
+    
+    private func resetPages() {
+        currentPage = 0
+        items.accept([])
+        isPagingEnded.accept(false)
+    }
     
     // MARK: - Input
     var useCase: UserListUseCase
@@ -51,15 +64,28 @@ final class UserListViewModel: UserListViewModelProtocol {
 extension UserListViewModel {
     
     func didSearch(string: String) {
+        resetPages()
+        query.accept(string)
         
+        loadPage()
     }
     
     func loadPage() {
-        
+        isLoading.accept(true)
+        useCase.searchUsers(query: query.value, page: nextPage)
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .subscribe(onNext: { (owner, response) in
+                owner.items.accept(response.items)
+                owner.isPagingEnded.accept(owner.items.value.count == response.total_count)
+                owner.isEmpty.accept(response.total_count == 0)
+                owner.isLoading.accept(false)
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     func loadNextPage() {
-        
+        loadPage()
     }
     
     func didSelectItem(model: User) {

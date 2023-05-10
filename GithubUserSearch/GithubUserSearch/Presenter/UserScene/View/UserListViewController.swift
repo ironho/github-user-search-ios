@@ -108,7 +108,7 @@ extension UserListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         searchController.isActive = false
-        // TODO: Search with searchText
+        viewModel.didSearch(string: searchText)
     }
     
 }
