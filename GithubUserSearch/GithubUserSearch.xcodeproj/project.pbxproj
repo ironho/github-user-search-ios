@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C82BB8BA2A0B81BC000DB2AA /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8B92A0B81BC000DB2AA /* UserListCell.swift */; };
-		C82BB8BC2A0B935B000DB2AA /* UserAvatarTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8BB2A0B935B000DB2AA /* UserAvatarTargetType.swift */; };
-		C82BB8BE2A0B98A4000DB2AA /* UserAvatarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8BD2A0B98A4000DB2AA /* UserAvatarRepository.swift */; };
 		C82BB8C02A0B9946000DB2AA /* UserAvatarUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8BF2A0B9946000DB2AA /* UserAvatarUseCase.swift */; };
+		C82BB8C52A0BA8EC000DB2AA /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C82BB8C42A0BA8EC000DB2AA /* AlamofireImage */; };
 		C82F8BBD2A0A78BA0086D4E2 /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = C82F8BBC2A0A78BA0086D4E2 /* NSObject-Rx */; };
 		C883AA102A0A204E006A9719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA0F2A0A204E006A9719 /* AppDelegate.swift */; };
 		C883AA122A0A204E006A9719 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA112A0A204E006A9719 /* SceneDelegate.swift */; };
@@ -71,8 +70,6 @@
 
 /* Begin PBXFileReference section */
 		C82BB8B92A0B81BC000DB2AA /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
-		C82BB8BB2A0B935B000DB2AA /* UserAvatarTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarTargetType.swift; sourceTree = "<group>"; };
-		C82BB8BD2A0B98A4000DB2AA /* UserAvatarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarRepository.swift; sourceTree = "<group>"; };
 		C82BB8BF2A0B9946000DB2AA /* UserAvatarUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarUseCase.swift; sourceTree = "<group>"; };
 		C883AA0C2A0A204E006A9719 /* GithubUserSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C883AA0F2A0A204E006A9719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +103,7 @@
 				C8BADCC72A0A764700A44DA0 /* RxCocoa in Frameworks */,
 				C883AA412A0A21F5006A9719 /* Then in Frameworks */,
 				C82F8BBD2A0A78BA0086D4E2 /* NSObject-Rx in Frameworks */,
+				C82BB8C52A0BA8EC000DB2AA /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				C883AA5E2A0A5FFB006A9719 /* UserListRepository.swift */,
-				C82BB8BD2A0B98A4000DB2AA /* UserAvatarRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -283,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				C883AA632A0A638E006A9719 /* UserListTargetType.swift */,
-				C82BB8BB2A0B935B000DB2AA /* UserAvatarTargetType.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -317,6 +313,7 @@
 				C883AA4E2A0A360B006A9719 /* SuperEasyLayout */,
 				C8BADCC62A0A764700A44DA0 /* RxCocoa */,
 				C82F8BBC2A0A78BA0086D4E2 /* NSObject-Rx */,
+				C82BB8C42A0BA8EC000DB2AA /* AlamofireImage */,
 			);
 			productName = GithubUserSearch;
 			productReference = C883AA0C2A0A204E006A9719 /* GithubUserSearch.app */;
@@ -402,6 +399,7 @@
 				C883AA4D2A0A360B006A9719 /* XCRemoteSwiftPackageReference "SuperEasyLayout" */,
 				C8BADCC32A0A764700A44DA0 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C82F8BBB2A0A78BA0086D4E2 /* XCRemoteSwiftPackageReference "NSObject-Rx" */,
+				C82BB8C32A0BA8EC000DB2AA /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = C883AA0D2A0A204E006A9719 /* Products */;
 			projectDirPath = "";
@@ -453,11 +451,9 @@
 				C883AA612A0A607D006A9719 /* SearchUsersResponse.swift in Sources */,
 				C883AA562A0A5B9A006A9719 /* User.swift in Sources */,
 				C883AA5C2A0A5FCC006A9719 /* UserListUseCase.swift in Sources */,
-				C82BB8BE2A0B98A4000DB2AA /* UserAvatarRepository.swift in Sources */,
 				C883AA4C2A0A3379006A9719 /* UserListViewController.swift in Sources */,
 				C883AA5F2A0A5FFB006A9719 /* UserListRepository.swift in Sources */,
 				C82BB8C02A0B9946000DB2AA /* UserAvatarUseCase.swift in Sources */,
-				C82BB8BC2A0B935B000DB2AA /* UserAvatarTargetType.swift in Sources */,
 				C883AA642A0A638E006A9719 /* UserListTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,6 +801,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C82BB8C32A0BA8EC000DB2AA /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		C82F8BBB2A0A78BA0086D4E2 /* XCRemoteSwiftPackageReference "NSObject-Rx" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/NSObject-Rx.git";
@@ -848,6 +852,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C82BB8C42A0BA8EC000DB2AA /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C82BB8C32A0BA8EC000DB2AA /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
 		C82F8BBC2A0A78BA0086D4E2 /* NSObject-Rx */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C82F8BBB2A0A78BA0086D4E2 /* XCRemoteSwiftPackageReference "NSObject-Rx" */;
