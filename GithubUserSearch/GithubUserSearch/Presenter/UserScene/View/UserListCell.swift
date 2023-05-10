@@ -7,7 +7,7 @@
 
 import UIKit
 
-import Alamofire
+import AlamofireImage
 import SuperEasyLayout
 import Then
 
@@ -21,10 +21,7 @@ class UserListCell: UITableViewCell {
     private lazy var profileImageView = UIImageView().then {
         $0.layer.borderColor = UIColor.lightGray.cgColor
         $0.layer.borderWidth = 1.0
-        $0.contentMode = .center
-        let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .ultraLight)
-        let defaultImage = UIImage(systemName: "person.fill", withConfiguration: config)
-        $0.image = defaultImage
+        $0.contentMode = .scaleAspectFit
         $0.tintColor = UIColor.lightGray
         $0.clipsToBounds = true
     }
@@ -63,7 +60,7 @@ class UserListCell: UITableViewCell {
             guard let user = user else { return }
             if let encodedUrl = user.avatar_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
                 let avatarUrl = URL(string: encodedUrl) {
-                
+                profileImageView.af.setImage(withURL: avatarUrl)
             }
             nameLabel.text = user.login
             urlLabel.text = user.html_url
