@@ -39,6 +39,7 @@ class UserListViewController: UIViewController {
         $0.estimatedRowHeight = UITableView.automaticDimension
         $0.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         $0.register(UserListCell.self, forCellReuseIdentifier: "Cell")
+        $0.keyboardDismissMode = .onDrag
     }
     
     private lazy var emptyLabel = UILabel().then {
