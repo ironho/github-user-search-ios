@@ -70,7 +70,6 @@ class UserListViewController: UIViewController {
         setupNavigationBarAppearance()
         setupViews()
         
-        bindQuery()
         bindItems()
         bindItemSelected()
         bindPagination()
@@ -139,12 +138,6 @@ extension UserListViewController {
 
 // MARK: - Bind
 extension UserListViewController {
-    
-    private func bindQuery() {
-        viewModel.query
-            .bind(to: searchController.searchBar.rx.text)
-            .disposed(by: rx.disposeBag)
-    }
     
     private func bindItems() {
         viewModel.items.bind(to: tableView.rx.items(cellIdentifier: "Cell", cellType: UserListCell.self)) { (row, element, cell) in
@@ -218,7 +211,6 @@ extension UserListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
-        searchController.isActive = false
         viewModel.didSearch(string: searchText)
     }
     
