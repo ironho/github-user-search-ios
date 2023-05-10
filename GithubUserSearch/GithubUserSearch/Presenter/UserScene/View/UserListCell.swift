@@ -83,13 +83,13 @@ extension UserListCell {
         horizontalStackView.do {
             $0.top == self.top + 16
             $0.left == self.left + 16
-            $0.bottom == self.bottom - 16
+            $0.bottom <= self.bottom - 16
             $0.right == self.right - 16
         }
         
         profileImageView.do {
             $0.width == 48
-            $0.height >= 48
+            $0.height == 48
             $0.layer.cornerRadius = 48 / 2.0
         }
     }
