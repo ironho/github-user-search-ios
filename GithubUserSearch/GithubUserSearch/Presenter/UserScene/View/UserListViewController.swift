@@ -47,6 +47,11 @@ class UserListViewController: UIViewController {
         $0.textAlignment = .center
     }
     
+    private lazy var searchClearButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+        $0.tintColor = .lightGray
+    }
+    
     
     // MARK: - Life cycle
     init(viewModel: UserListViewModel) {
@@ -95,6 +100,7 @@ extension UserListViewController {
         navigationItem.title = "Github"
         
         searchContainer.addSubview(searchController.searchBar)
+        searchController.searchBar.addSubview(searchClearButton)
         view.do {
             $0.addSubview(searchContainer)
             $0.addSubview(tableView)
@@ -118,6 +124,11 @@ extension UserListViewController {
         emptyLabel.do {
             $0.centerX == tableView.centerX
             $0.centerY == tableView.centerY
+        }
+        
+        searchClearButton.do {
+            $0.centerY == searchController.searchBar.centerY
+            $0.right == searchController.searchBar.right - 16
         }
     }
     
