@@ -11,6 +11,8 @@ import RxCocoa
 import RxSwift
 
 protocol UserListViewModelInput {
+    var useCase: UserListUseCase { get }
+    
     func didSearch(string: String)
     func loadPage()
     func loadNextPage()
@@ -29,6 +31,9 @@ typealias UserListViewModelProtocol = UserListViewModelInput & UserListViewModel
 
 final class UserListViewModel: UserListViewModelProtocol {
     
+    // MARK: - Input
+    var useCase: UserListUseCase
+    
     // MARK: - Output
     var items = BehaviorRelay<[User]>(value: [])
     var isLoading = BehaviorRelay<Bool>(value: false)
@@ -36,6 +41,9 @@ final class UserListViewModel: UserListViewModelProtocol {
     var query = BehaviorRelay<String>(value: "")
     var isPagingEnded = BehaviorRelay<Bool>(value: false)
     
+    init(useCase: UserListUseCase) {
+        self.useCase = useCase
+    }
 }
 
 

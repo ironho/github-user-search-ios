@@ -12,6 +12,10 @@ import Then
 
 class UserListViewController: UIViewController {
     
+    let viewModel: UserListViewModel
+
+    
+    // MARK: - UI
     private lazy var searchController = UISearchController(searchResultsController: nil).then {
         $0.delegate = self
         $0.searchBar.delegate = self
@@ -31,6 +35,17 @@ class UserListViewController: UIViewController {
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
         $0.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
+    
+    
+    // MARK: - Life cycle
+    init(viewModel: UserListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
