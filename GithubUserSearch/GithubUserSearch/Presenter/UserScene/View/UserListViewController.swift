@@ -8,6 +8,7 @@
 import UIKit
 import SafariServices
 
+import RxSwift
 import SuperEasyLayout
 import Then
 
@@ -59,6 +60,7 @@ class UserListViewController: UIViewController {
         bindQuery()
         bindItems()
         bindItemSelected()
+        bindPagination()
     }
 }
 
@@ -135,6 +137,26 @@ extension UserListViewController {
                 guard let url = URL(string: $0.html_url) else { return }
                 let safariViewController = SFSafariViewController(url: url)
                 self.present(safariViewController, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindPagination() {
+        tableView.rx.didScroll
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .throttle(.milliseconds(50), scheduler: MainScheduler.instance)
+            .filter {
+                !$0.0.viewModel.isLoading.value
+            }
+            .filter {
+                !$0.0.viewModel.isPagingEnded.value
+            }
+            .filter {
+                $0.0.tableView.isNeedPagination()
+            }
+            .subscribe(onNext: {
+                $0.0.viewModel.loadNextPage()
             })
             .disposed(by: rx.disposeBag)
     }

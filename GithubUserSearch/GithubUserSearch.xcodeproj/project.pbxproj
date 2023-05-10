@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C82BB8BA2A0B81BC000DB2AA /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8B92A0B81BC000DB2AA /* UserListCell.swift */; };
 		C82BB8C52A0BA8EC000DB2AA /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C82BB8C42A0BA8EC000DB2AA /* AlamofireImage */; };
+		C82BB8C82A0BB033000DB2AA /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8C72A0BB033000DB2AA /* UIScrollView+.swift */; };
 		C82F8BBD2A0A78BA0086D4E2 /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = C82F8BBC2A0A78BA0086D4E2 /* NSObject-Rx */; };
 		C883AA102A0A204E006A9719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA0F2A0A204E006A9719 /* AppDelegate.swift */; };
 		C883AA122A0A204E006A9719 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA112A0A204E006A9719 /* SceneDelegate.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		C82BB8B92A0B81BC000DB2AA /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		C82BB8C72A0BB033000DB2AA /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		C883AA0C2A0A204E006A9719 /* GithubUserSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C883AA0F2A0A204E006A9719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C883AA112A0A204E006A9719 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C82BB8C62A0BB026000DB2AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C82BB8C72A0BB033000DB2AA /* UIScrollView+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C883AA032A0A204E006A9719 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 		C883AA462A0A30C4006A9719 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C82BB8C62A0BB026000DB2AA /* Extensions */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -445,6 +456,7 @@
 				C883AA102A0A204E006A9719 /* AppDelegate.swift in Sources */,
 				C883AA532A0A5569006A9719 /* UserListViewModel.swift in Sources */,
 				C883AA122A0A204E006A9719 /* SceneDelegate.swift in Sources */,
+				C82BB8C82A0BB033000DB2AA /* UIScrollView+.swift in Sources */,
 				C883AA612A0A607D006A9719 /* SearchUsersResponse.swift in Sources */,
 				C883AA562A0A5B9A006A9719 /* User.swift in Sources */,
 				C883AA5C2A0A5FCC006A9719 /* UserListUseCase.swift in Sources */,
