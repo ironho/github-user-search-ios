@@ -17,7 +17,6 @@ protocol UserListViewModelInput {
     func didSearch(string: String)
     func loadPage()
     func loadNextPage()
-    func didSelectItem(model: User)
 }
 
 protocol UserListViewModelOutput {
@@ -86,10 +85,6 @@ extension UserListViewModel {
     
     func loadNextPage() {
         loadPage()
-    }
-    
-    func didSelectItem(model: User) {
-        
     }
     
 }

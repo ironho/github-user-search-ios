@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 import SuperEasyLayout
 import Then
@@ -57,6 +58,7 @@ class UserListViewController: UIViewController {
         
         bindQuery()
         bindItems()
+        bindItemSelected()
     }
 }
 
@@ -120,6 +122,21 @@ extension UserListViewController {
             cell.user = element
         }
         .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindItemSelected() {
+        tableView.rx.modelSelected(User.self)
+            .subscribe(onNext: { [weak self] in
+                guard let `self` = self else { return }
+                if let selectedRowIndexPath = self.tableView.indexPathForSelectedRow {
+                    self.tableView.deselectRow(at: selectedRowIndexPath, animated: true)
+                }
+                
+                guard let url = URL(string: $0.html_url) else { return }
+                let safariViewController = SFSafariViewController(url: url)
+                self.present(safariViewController, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
     }
     
 }
