@@ -78,6 +78,7 @@ class UserListViewController: UIViewController {
         bindEmptyView()
         bindClearButton()
         bindIsLoading()
+        bindSignInButton()
     }
 }
 
@@ -236,6 +237,14 @@ extension UserListViewController {
                     $0.0.tableView.refreshControl?.endRefreshing()
                 }
             })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindSignInButton() {
+        guard let rightButtonTitle = navigationItem.rightBarButtonItem?.rx.title else { return }
+        viewModel.authorizationViewModel.accessToken
+            .map { $0 == nil ? "Sign in" : "Sign out" }
+            .bind(to: rightButtonTitle)
             .disposed(by: rx.disposeBag)
     }
     
