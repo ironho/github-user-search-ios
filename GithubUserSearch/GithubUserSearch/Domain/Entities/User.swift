@@ -8,7 +8,6 @@
 import Foundation
 
 struct User: Decodable {
-    
     var login: String
     var id: Int
     var node_id: String
@@ -28,5 +27,4 @@ struct User: Decodable {
     var starred_url: String
     var events_url: String
     var site_admin: Bool
-    
 }

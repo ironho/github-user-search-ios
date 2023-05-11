@@ -8,9 +8,7 @@
 import Foundation
 
 struct SearchUsersResponse: Decodable {
-    
     var total_count: Int
     var incomplete_results: Bool
     var items: [User]
-    
 }

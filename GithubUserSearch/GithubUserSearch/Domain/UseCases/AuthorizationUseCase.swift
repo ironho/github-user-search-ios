@@ -23,5 +23,4 @@ final class AuthorizationUseCase: AuthorizationUseCaseProtocol {
     func execute(code: String) -> Observable<AccessToken?> {
         return repository.requestAccessToken(code: code)
     }
-    
 }
