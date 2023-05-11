@@ -27,12 +27,12 @@ final class UserListUseCaseTests: XCTestCase {
 
     func testSearchMe() {
         do {
-            let response = try useCase.searchUsers(query: "ironho", page: 1)
+            let response = try useCase.searchUsers(accessToken: "", query: "ironho", page: 1)
                 .observe(on: MainScheduler.instance)
                 .toBlocking(timeout: 10)
                 .first()
-            XCTAssertTrue(response?.items.count ?? 0 > 0)
-            XCTAssertEqual(response?.items.first?.login, "ironho")
+            XCTAssertTrue(response??.items.count ?? 0 > 0)
+            XCTAssertEqual(response??.items.first?.login, "ironho")
         } catch {
             XCTFail(error.localizedDescription)
         }
