@@ -9,6 +9,9 @@ import Foundation
 
 import Moya
 
+/**
+ https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#2-users-are-redirected-back-to-your-site-by-github
+ */
 struct AccessTokenTargetType: TargetType {
     
     var baseURL = URL(string: "https://github.com")!

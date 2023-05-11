@@ -9,6 +9,9 @@ import Foundation
 
 import Moya
 
+/**
+ https://docs.github.com/en/rest/search?apiVersion=2022-11-28#search-users
+ */
 struct UserListTargetType: TargetType {
     
     var baseURL = URL.githubApiBaseURL
