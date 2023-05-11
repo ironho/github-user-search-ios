@@ -48,10 +48,11 @@ struct UserListTargetType: TargetType {
     """.data(using: .utf8)!
     var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.queryString) }
     var headers: [String: String]? {
-        [
-            "Authorization": "Bearer \(accessToken)",
-            "accept": "application/vnd.github+json"
-        ]
+        var _headers = ["accept": "application/vnd.github+json"]
+        if accessToken.isEmpty == false {
+            _headers["Authorization"] = "Bearer \(accessToken)"
+        }
+        return _headers
     }
     
     var accessToken: String
