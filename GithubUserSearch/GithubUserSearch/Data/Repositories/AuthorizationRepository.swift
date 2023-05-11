@@ -11,7 +11,7 @@ import Moya
 import RxSwift
 
 protocol AuthorizationRepositoryProtocol {
-    func requestAccessToken(code: String) async throws -> Observable<AccessToken?>
+    func requestAccessToken(code: String) async throws -> Observable<AccessToken>
 }
 
 final class AuthorizationRepository {
@@ -20,12 +20,12 @@ final class AuthorizationRepository {
 
 extension AuthorizationRepository: AuthorizationRepositoryProtocol {
     
-    func requestAccessToken(code: String) -> Observable<AccessToken?> {
+    func requestAccessToken(code: String) -> Observable<AccessToken> {
         return provider.rx.request(MultiTarget(AccessTokenTargetType(code: code)))
+            .filterSuccessfulStatusCodes()
             .retry(3)
             .asObservable()
             .map { try JSONDecoder().decode(AccessToken.self, from: $0.data) }
-            .catchAndReturn(nil)
     }
     
 }

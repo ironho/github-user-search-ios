@@ -55,9 +55,6 @@ extension AuthorizationViewModel {
             .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .subscribe(onNext: { (owner, response) in
-                guard let response = response else {
-                    return
-                }
                 owner.accessToken.accept(response.access_token)
             })
             .disposed(by: rx.disposeBag)
