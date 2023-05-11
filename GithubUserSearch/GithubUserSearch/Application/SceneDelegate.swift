@@ -57,7 +57,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            if url.absoluteString.starts(with: Constants.githubCallbackUrlScheme) {
+                if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+                    if let code = components.queryItems?.first(where: { $0.name == "code" })?.value {
+                        // TODO: code로 accessToken 획득 처리
+                    }
+                }
+            }
+        }
+    }
 
 }
 
