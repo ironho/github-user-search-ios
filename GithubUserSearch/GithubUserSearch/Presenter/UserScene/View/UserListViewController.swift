@@ -72,9 +72,11 @@ class UserListViewController: UIViewController {
         
         bindItems()
         bindItemSelected()
+        bindRefreshControl()
         bindPagination()
         bindEmptyView()
         bindClearButton()
+        bindIsLoading()
     }
 }
 
@@ -148,6 +150,7 @@ extension UserListViewController {
     
     private func bindItemSelected() {
         tableView.rx.modelSelected(User.self)
+            .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .subscribe(onNext: { (owner, model) in
                 if let selectedRowIndexPath = owner.tableView.indexPathForSelectedRow {
@@ -156,6 +159,20 @@ extension UserListViewController {
                 guard let url = URL(string: model.html_url) else { return }
                 let safariViewController = SFSafariViewController(url: url)
                 owner.present(safariViewController, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.rx.controlEvent(.valueChanged)
+            .observe(on: MainScheduler.instance)
+            .map { refreshControl.isRefreshing }
+            .filter { $0 == true }
+            .withUnretained(self)
+            .subscribe( onNext: {
+                $0.0.viewModel.didSearch(string: $0.0.viewModel.query.value)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -182,6 +199,7 @@ extension UserListViewController {
     
     private func bindEmptyView() {
         viewModel.isEmpty
+            .observe(on: MainScheduler.instance)
             .map { !$0 }
             .bind(to: emptyLabel.rx.isHidden)
             .disposed(by: rx.disposeBag)
@@ -189,6 +207,7 @@ extension UserListViewController {
     
     private func bindClearButton() {
         searchController.searchBar.rx.text
+            .observe(on: MainScheduler.instance)
             .map { $0 == "" }
             .bind(to: searchClearButton.rx.isHidden)
             .disposed(by: rx.disposeBag)
@@ -198,6 +217,19 @@ extension UserListViewController {
             .subscribe(onNext: {
                 $0.0.searchController.searchBar.text = ""
                 $0.0.searchClearButton.isHidden = true
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func bindIsLoading() {
+        viewModel.isLoading
+            .observe(on: MainScheduler.instance)
+            .filter { $0 == true }
+            .withUnretained(self)
+            .subscribe(onNext: {
+                if $0.0.tableView.refreshControl?.isRefreshing ?? false {
+                    $0.0.tableView.refreshControl?.endRefreshing()
+                }
             })
             .disposed(by: rx.disposeBag)
     }
