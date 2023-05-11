@@ -12,7 +12,7 @@ import RxMoya
 import RxSwift
 
 protocol UserListRepositoryProtocol {
-    func searchUsers(query: String, page: Int) -> Observable<SearchUsersResponse?>
+    func searchUsers(accessToken: String, query: String, page: Int) -> Observable<SearchUsersResponse?>
 }
 
 final class UserListRepository {
@@ -21,8 +21,8 @@ final class UserListRepository {
 
 extension UserListRepository: UserListRepositoryProtocol {
     
-    func searchUsers(query: String, page: Int) -> Observable<SearchUsersResponse?> {
-        return provider.rx.request(MultiTarget(UserListTargetType(query: query, page: page)))
+    func searchUsers(accessToken: String, query: String, page: Int) -> Observable<SearchUsersResponse?> {
+        return provider.rx.request(MultiTarget(UserListTargetType(accessToken: accessToken, query: query, page: page)))
             .retry(3)
             .asObservable()
             .map { try JSONDecoder().decode(SearchUsersResponse.self, from: $0.data) }

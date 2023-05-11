@@ -74,7 +74,7 @@ extension UserListViewModel {
     
     func loadPage() {
         isLoading.accept(true)
-        useCase.searchUsers(query: query.value, page: nextPage)
+        useCase.searchUsers(accessToken: authorizationViewModel.accessToken.value ?? "", query: query.value, page: nextPage)
             .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .subscribe(onNext: { (owner, response) in

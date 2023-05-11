@@ -44,11 +44,18 @@ struct UserListTargetType: TargetType {
     }
     """.data(using: .utf8)!
     var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.queryString) }
-    var headers: [String: String]? = ["accept": "application/vnd.github+json"]
+    var headers: [String: String]? {
+        [
+            "Authorization": "Bearer \(accessToken)",
+            "accept": "application/vnd.github+json"
+        ]
+    }
     
+    var accessToken: String
     var parameters: [String: String] = [: ]
     
-    init(query: String, page: Int) {
+    init(accessToken: String, query: String, page: Int) {
+        self.accessToken = accessToken
         self.parameters = ["q": query, "page": "\(page)"]
     }
     
