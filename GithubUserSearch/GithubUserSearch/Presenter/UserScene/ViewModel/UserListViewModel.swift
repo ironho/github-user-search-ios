@@ -75,7 +75,22 @@ extension UserListViewModel {
             .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .subscribe(onNext: { (owner, response) in
-                owner.items.accept(owner.items.value + (response.items ?? []))
+                guard let response = response else {
+                    print("Network error occurrence")
+                    /**
+                     아래와 같은 에러가 종종 발생한다
+                     {
+                         "message": "Only the first 1000 search results are available",
+                         "documentation_url": "https://docs.github.com/v3/search/"
+                     }
+                     상세 내용은 아래 링크 참고
+                     https://docs.github.com/ko/rest/search?apiVersion=2022-11-28#about-the-search-api
+                     */
+                    owner.isPagingEnded.accept(true)
+                    owner.isLoading.accept(false)
+                    return
+                }
+                owner.items.accept(owner.items.value + response.items)
                 owner.isPagingEnded.accept(owner.items.value.count == response.total_count)
                 owner.isEmpty.accept(response.total_count == 0)
                 owner.isLoading.accept(false)

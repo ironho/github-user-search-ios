@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 protocol UserListUseCaseProtocol {
-    func searchUsers(query: String, page: Int) -> Observable<SearchUsersResponse>
+    func searchUsers(query: String, page: Int) -> Observable<SearchUsersResponse?>
 }
 
 final class UserListUseCase: UserListUseCaseProtocol {
@@ -20,7 +20,7 @@ final class UserListUseCase: UserListUseCaseProtocol {
         self.repository = repository
     }
     
-    func searchUsers(query: String, page: Int) -> Observable<SearchUsersResponse> {
+    func searchUsers(query: String, page: Int) -> Observable<SearchUsersResponse?> {
         return repository.searchUsers(query: query, page: page)
     }
 }
