@@ -68,6 +68,7 @@ class UserListViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationBarAppearance()
+        setupAuthorizeToggleButton()
         setupViews()
         
         bindItems()
@@ -97,6 +98,10 @@ extension UserListViewController {
             $0.compactAppearance = appearance
             $0.scrollEdgeAppearance = appearance
         }
+    }
+    
+    private func setupAuthorizeToggleButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign in", style: .plain, target: self, action: #selector(authorizeToggleButtonTapped))
     }
     
     private func setupViews() {
@@ -232,6 +237,16 @@ extension UserListViewController {
                 }
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+}
+
+
+// MARK: - Action
+extension UserListViewController {
+    
+    @objc fileprivate func authorizeToggleButtonTapped() {
+        
     }
     
 }
