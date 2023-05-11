@@ -255,11 +255,19 @@ extension UserListViewController {
 extension UserListViewController {
     
     @objc fileprivate func authorizeToggleButtonTapped() {
-        signIn()
+        if viewModel.authorizationViewModel.hasAuthorization() {
+            signOut()
+        } else {
+            signIn()
+        }
     }
     
     func signIn() {
         UIApplication.shared.open(URL.signInURL)
+    }
+    
+    fileprivate func signOut() {
+        viewModel.authorizationViewModel.clearToken()
     }
     
 }

@@ -54,7 +54,6 @@ extension AuthorizationViewModel {
         authorizationUseCase.execute(code: _code)
             .observe(on: MainScheduler.instance)
             .withUnretained(self)
-            .debug()
             .subscribe(onNext: { (owner, response) in
                 guard let response = response else {
                     return
