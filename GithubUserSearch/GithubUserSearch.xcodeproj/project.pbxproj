@@ -12,6 +12,11 @@
 		C82BB8C82A0BB033000DB2AA /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8C72A0BB033000DB2AA /* UIScrollView+.swift */; };
 		C82BB8CA2A0CC547000DB2AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8C92A0CC547000DB2AA /* Constants.swift */; };
 		C82BB8CC2A0CC99A000DB2AA /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8CB2A0CC99A000DB2AA /* URL+.swift */; };
+		C82BB8CF2A0CD9A4000DB2AA /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8CE2A0CD9A4000DB2AA /* AuthorizationViewModel.swift */; };
+		C82BB8D12A0CDA90000DB2AA /* AuthorizationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8D02A0CDA90000DB2AA /* AuthorizationUseCase.swift */; };
+		C82BB8D32A0CDAAC000DB2AA /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8D22A0CDAAC000DB2AA /* AccessToken.swift */; };
+		C82BB8D52A0CDAC5000DB2AA /* AuthorizationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8D42A0CDAC5000DB2AA /* AuthorizationRepository.swift */; };
+		C82BB8D72A0CDC7F000DB2AA /* AccessTokenTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8D62A0CDC7F000DB2AA /* AccessTokenTargetType.swift */; };
 		C82F8BBD2A0A78BA0086D4E2 /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = C82F8BBC2A0A78BA0086D4E2 /* NSObject-Rx */; };
 		C883AA102A0A204E006A9719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA0F2A0A204E006A9719 /* AppDelegate.swift */; };
 		C883AA122A0A204E006A9719 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA112A0A204E006A9719 /* SceneDelegate.swift */; };
@@ -75,6 +80,11 @@
 		C82BB8C72A0BB033000DB2AA /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		C82BB8C92A0CC547000DB2AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C82BB8CB2A0CC99A000DB2AA /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
+		C82BB8CE2A0CD9A4000DB2AA /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		C82BB8D02A0CDA90000DB2AA /* AuthorizationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationUseCase.swift; sourceTree = "<group>"; };
+		C82BB8D22A0CDAAC000DB2AA /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		C82BB8D42A0CDAC5000DB2AA /* AuthorizationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRepository.swift; sourceTree = "<group>"; };
+		C82BB8D62A0CDC7F000DB2AA /* AccessTokenTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenTargetType.swift; sourceTree = "<group>"; };
 		C883AA0C2A0A204E006A9719 /* GithubUserSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C883AA0F2A0A204E006A9719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C883AA112A0A204E006A9719 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +148,14 @@
 				C82BB8CB2A0CC99A000DB2AA /* URL+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C82BB8CD2A0CD98D000DB2AA /* Authorize */ = {
+			isa = PBXGroup;
+			children = (
+				C82BB8CE2A0CD9A4000DB2AA /* AuthorizationViewModel.swift */,
+			);
+			path = Authorize;
 			sourceTree = "<group>";
 		};
 		C883AA032A0A204E006A9719 = {
@@ -234,6 +252,7 @@
 		C883AA492A0A30DF006A9719 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				C82BB8CD2A0CD98D000DB2AA /* Authorize */,
 				C883AA4A2A0A317C006A9719 /* UserScene */,
 			);
 			path = Presenter;
@@ -270,6 +289,7 @@
 			children = (
 				C883AA552A0A5B9A006A9719 /* User.swift */,
 				C883AA602A0A607D006A9719 /* SearchUsersResponse.swift */,
+				C82BB8D22A0CDAAC000DB2AA /* AccessToken.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -278,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				C883AA5B2A0A5FCC006A9719 /* UserListUseCase.swift */,
+				C82BB8D02A0CDA90000DB2AA /* AuthorizationUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -286,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				C883AA5E2A0A5FFB006A9719 /* UserListRepository.swift */,
+				C82BB8D42A0CDAC5000DB2AA /* AuthorizationRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -294,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				C883AA632A0A638E006A9719 /* UserListTargetType.swift */,
+				C82BB8D62A0CDC7F000DB2AA /* AccessTokenTargetType.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -460,11 +483,16 @@
 			files = (
 				C82BB8BA2A0B81BC000DB2AA /* UserListCell.swift in Sources */,
 				C883AA102A0A204E006A9719 /* AppDelegate.swift in Sources */,
+				C82BB8D32A0CDAAC000DB2AA /* AccessToken.swift in Sources */,
 				C883AA532A0A5569006A9719 /* UserListViewModel.swift in Sources */,
+				C82BB8D12A0CDA90000DB2AA /* AuthorizationUseCase.swift in Sources */,
 				C883AA122A0A204E006A9719 /* SceneDelegate.swift in Sources */,
 				C82BB8C82A0BB033000DB2AA /* UIScrollView+.swift in Sources */,
 				C883AA612A0A607D006A9719 /* SearchUsersResponse.swift in Sources */,
+				C82BB8CF2A0CD9A4000DB2AA /* AuthorizationViewModel.swift in Sources */,
 				C883AA562A0A5B9A006A9719 /* User.swift in Sources */,
+				C82BB8D72A0CDC7F000DB2AA /* AccessTokenTargetType.swift in Sources */,
+				C82BB8D52A0CDAC5000DB2AA /* AuthorizationRepository.swift in Sources */,
 				C883AA5C2A0A5FCC006A9719 /* UserListUseCase.swift in Sources */,
 				C883AA4C2A0A3379006A9719 /* UserListViewController.swift in Sources */,
 				C883AA5F2A0A5FFB006A9719 /* UserListRepository.swift in Sources */,

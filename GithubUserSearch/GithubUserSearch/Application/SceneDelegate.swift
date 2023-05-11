@@ -10,7 +10,9 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var authorizationRepository = AuthorizationRepository()
+    lazy var authorizationUseCase = AuthorizationUseCase(repository: authorizationRepository)
+    lazy var authorizationViewModel = AuthorizationViewModel(authorizationUseCase: authorizationUseCase)
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -20,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let repository = UserListRepository()
         let useCase = UserListUseCase(repository: repository)
-        let viewModel = UserListViewModel(useCase: useCase)
+        let viewModel = UserListViewModel(authorizationViewModel: authorizationViewModel, useCase: useCase)
         let viewController = UserListViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)
         let window = UIWindow(windowScene: windowScene)
@@ -63,7 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if url.absoluteString.starts(with: Constants.githubCallbackUrlScheme) {
                 if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
                     if let code = components.queryItems?.first(where: { $0.name == "code" })?.value {
-                        // TODO: code로 accessToken 획득 처리
+                        authorizationViewModel.code.accept(code)
                     }
                 }
             }

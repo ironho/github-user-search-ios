@@ -12,9 +12,8 @@ import RxMoya
 import RxSwift
 
 protocol UserListRepositoryProtocol {
-    func searchUsers(query: String, page: Int) async throws -> Observable<SearchUsersResponse?>
+    func searchUsers(query: String, page: Int) -> Observable<SearchUsersResponse?>
 }
-
 
 final class UserListRepository {
     let provider = MoyaProvider<MultiTarget>()

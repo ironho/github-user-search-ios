@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 
 protocol UserListViewModelInput {
+    var authorizationViewModel: AuthorizationViewModel { get }
     var useCase: UserListUseCase { get }
     
     func didSearch(string: String)
@@ -44,6 +45,7 @@ final class UserListViewModel: NSObject, UserListViewModelProtocol {
     }
     
     // MARK: - Input
+    var authorizationViewModel: AuthorizationViewModel
     var useCase: UserListUseCase
     
     // MARK: - Output
@@ -53,7 +55,8 @@ final class UserListViewModel: NSObject, UserListViewModelProtocol {
     var query = BehaviorRelay<String>(value: "")
     var isPagingEnded = BehaviorRelay<Bool>(value: false)
     
-    init(useCase: UserListUseCase) {
+    init(authorizationViewModel: AuthorizationViewModel, useCase: UserListUseCase) {
+        self.authorizationViewModel = authorizationViewModel
         self.useCase = useCase
     }
 }
