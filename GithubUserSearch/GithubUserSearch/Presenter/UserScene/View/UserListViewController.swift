@@ -148,15 +148,14 @@ extension UserListViewController {
     
     private func bindItemSelected() {
         tableView.rx.modelSelected(User.self)
-            .subscribe(onNext: { [weak self] in
-                guard let `self` = self else { return }
-                if let selectedRowIndexPath = self.tableView.indexPathForSelectedRow {
-                    self.tableView.deselectRow(at: selectedRowIndexPath, animated: true)
+            .withUnretained(self)
+            .subscribe(onNext: { (owner, model) in
+                if let selectedRowIndexPath = owner.tableView.indexPathForSelectedRow {
+                    owner.tableView.deselectRow(at: selectedRowIndexPath, animated: true)
                 }
-                
-                guard let url = URL(string: $0.html_url) else { return }
+                guard let url = URL(string: model.html_url) else { return }
                 let safariViewController = SFSafariViewController(url: url)
-                self.present(safariViewController, animated: true)
+                owner.present(safariViewController, animated: true)
             })
             .disposed(by: rx.disposeBag)
     }
