@@ -11,6 +11,7 @@
 		C82BB8C52A0BA8EC000DB2AA /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C82BB8C42A0BA8EC000DB2AA /* AlamofireImage */; };
 		C82BB8C82A0BB033000DB2AA /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8C72A0BB033000DB2AA /* UIScrollView+.swift */; };
 		C82BB8CA2A0CC547000DB2AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8C92A0CC547000DB2AA /* Constants.swift */; };
+		C82BB8CC2A0CC99A000DB2AA /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82BB8CB2A0CC99A000DB2AA /* URL+.swift */; };
 		C82F8BBD2A0A78BA0086D4E2 /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = C82F8BBC2A0A78BA0086D4E2 /* NSObject-Rx */; };
 		C883AA102A0A204E006A9719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA0F2A0A204E006A9719 /* AppDelegate.swift */; };
 		C883AA122A0A204E006A9719 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883AA112A0A204E006A9719 /* SceneDelegate.swift */; };
@@ -73,6 +74,7 @@
 		C82BB8B92A0B81BC000DB2AA /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		C82BB8C72A0BB033000DB2AA /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		C82BB8C92A0CC547000DB2AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C82BB8CB2A0CC99A000DB2AA /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		C883AA0C2A0A204E006A9719 /* GithubUserSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C883AA0F2A0A204E006A9719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C883AA112A0A204E006A9719 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				C82BB8C72A0BB033000DB2AA /* UIScrollView+.swift */,
+				C82BB8CB2A0CC99A000DB2AA /* URL+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				C883AA5F2A0A5FFB006A9719 /* UserListRepository.swift in Sources */,
 				C883AA642A0A638E006A9719 /* UserListTargetType.swift in Sources */,
 				C82BB8CA2A0CC547000DB2AA /* Constants.swift in Sources */,
+				C82BB8CC2A0CC99A000DB2AA /* URL+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

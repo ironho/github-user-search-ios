@@ -11,7 +11,7 @@ import Moya
 
 struct UserListTargetType: TargetType {
     
-    var baseURL = URL(string: "https://api.github.com")!
+    var baseURL = URL.githubApiBaseURL
     var path: String { "search/users" }
     var method: Moya.Method = .get
     var sampleData = """
