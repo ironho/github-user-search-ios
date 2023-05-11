@@ -246,7 +246,11 @@ extension UserListViewController {
 extension UserListViewController {
     
     @objc fileprivate func authorizeToggleButtonTapped() {
-        
+        signIn()
+    }
+    
+    func signIn() {
+        UIApplication.shared.open(URL.signInURL)
     }
     
 }
