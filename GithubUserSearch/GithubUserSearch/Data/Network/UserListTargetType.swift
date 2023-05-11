@@ -56,7 +56,7 @@ struct UserListTargetType: TargetType {
     }
     
     var accessToken: String
-    var parameters: [String: String] = [: ]
+    var parameters: [String: String]
     
     init(accessToken: String, query: String, page: Int) {
         self.accessToken = accessToken
