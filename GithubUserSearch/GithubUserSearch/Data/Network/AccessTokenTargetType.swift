@@ -14,7 +14,7 @@ import Moya
  */
 struct AccessTokenTargetType: TargetType {
     
-    var baseURL = URL(string: "https://github.com")!
+    var baseURL = URL.githubBaseURL
     var path: String { "login/oauth/access_token" }
     var method: Moya.Method = .post
     var sampleData = """

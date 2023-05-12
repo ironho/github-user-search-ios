@@ -9,15 +9,15 @@ import Foundation
 
 extension URL {
     
-    static let signInURL = URL(
-        string: "https://github.com/login/oauth/authorize",
-        query: [
+    static let signInURL = URL(string: "login/oauth/authorize", relativeTo: githubBaseURL)!
+        .appending([
             "client_id": Constants.githubClientID,
             "scope": "user"
-        ]
-    )!
+        ])
     
-    static let accessTokenURL = URL(string: "https://github.com/login/oauth/access_token")!
+    
+    static let accessTokenURL = URL(string: "login/oauth/access_token", relativeTo: githubBaseURL)
+    static let githubBaseURL = URL(string: "https://github.com")!
     static let githubApiBaseURL = URL(string: "https://api.github.com")!
     
 }
@@ -26,17 +26,14 @@ extension URL {
 // MARK: - init
 extension URL {
     
-    init?(string: String, query: [String: String?]) {
-        guard var urlComponents = URLComponents(string: string) else {
-            return nil
+    func appending(_ parameters: [String: String?]) -> URL {
+        guard var urlComponents = URLComponents(string: absoluteString) else { return absoluteURL }
+        var queryItems = urlComponents.queryItems ?? []
+        for parameter in parameters {
+            queryItems.append(URLQueryItem(name: parameter.key, value: parameter.value))
         }
-        urlComponents.queryItems = query.map {
-            URLQueryItem(name: $0.key, value: $0.value)
-        }
-        guard let url = urlComponents.url else {
-            return nil
-        }
-        self.init(string: url.absoluteString)
+        urlComponents.queryItems = queryItems
+        return urlComponents.url!
     }
     
 }
