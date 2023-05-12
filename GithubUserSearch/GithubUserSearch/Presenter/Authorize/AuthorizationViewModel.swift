@@ -51,7 +51,7 @@ extension AuthorizationViewModel {
     }
     
     func requestAccessToken(_code: String) {
-        authorizationUseCase.execute(code: _code)
+        authorizationUseCase.requestAccessToken(code: _code)
             .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .subscribe(onNext: { (owner, response) in

@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 protocol AuthorizationUseCaseProtocol {
-    func execute(code: String) -> Observable<AccessToken>
+    func requestAccessToken(code: String) -> Observable<AccessToken>
 }
 
 final class AuthorizationUseCase: AuthorizationUseCaseProtocol {
@@ -20,7 +20,7 @@ final class AuthorizationUseCase: AuthorizationUseCaseProtocol {
         self.repository = repository
     }
     
-    func execute(code: String) -> Observable<AccessToken> {
+    func requestAccessToken(code: String) -> Observable<AccessToken> {
         return repository.requestAccessToken(code: code)
     }
 }
