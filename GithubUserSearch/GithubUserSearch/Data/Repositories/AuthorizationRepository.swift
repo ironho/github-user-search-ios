@@ -11,7 +11,7 @@ import Moya
 import RxSwift
 
 protocol AuthorizationRepositoryProtocol {
-    func requestAccessToken(code: String) async throws -> Observable<AccessToken>
+    func requestAccessToken(code: String) -> Observable<AccessToken>
 }
 
 final class AuthorizationRepository {
