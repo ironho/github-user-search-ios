@@ -15,7 +15,6 @@ extension URL {
             "scope": "user"
         ])
     
-    
     static let accessTokenURL = URL(string: "login/oauth/access_token", relativeTo: githubBaseURL)
     static let githubBaseURL = URL(string: "https://github.com")!
     static let githubApiBaseURL = URL(string: "https://api.github.com")!
@@ -23,7 +22,7 @@ extension URL {
 }
 
 
-// MARK: - init
+// MARK: - func
 extension URL {
     
     func appending(_ parameters: [String: String?]) -> URL {
