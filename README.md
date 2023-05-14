@@ -67,4 +67,43 @@ func searchUsers(accessToken: String?, query: String, page: Int) -> Observable<S
 
 func requestAccessToken(code: String) -> Observable<AccessToken>
 ```
+
+- AuthorizationViewModel
+```Swift
+protocol AuthorizationViewModelInput {
+    var authorizationUseCase: AuthorizationUseCase { get }
+    
+    func clearToken()
+    func requestAccessToken(_code: String)
+    func hasAuthorization() -> Bool
+}
+
+protocol AuthorizationViewModelOutput {
+    var code: BehaviorRelay<String?> { get }
+    var accessToken: BehaviorRelay<String?> { get }
+}
+
+typealias AuthorizationViewModelProtocol = AuthorizationViewModelInput & AuthorizationViewModelOutput
+```
+
+- UserListViewModel
+```Swift
+protocol UserListViewModelInput {
+    var authorizationViewModel: AuthorizationViewModel { get }
+    var useCase: UserListUseCase { get }
+    
+    func didSearch(string: String)
+    func loadNextPage()
+    func searchUsers()
+}
+
+protocol UserListViewModelOutput {
+    var items: BehaviorRelay<[User]> { get }
+    var isLoading: BehaviorRelay<Bool> { get }
+    var isEmpty: BehaviorRelay<Bool> { get }
+    var query: BehaviorRelay<String> { get }
+    var isPagingEnded: BehaviorRelay<Bool> { get }
+}
+
+typealias UserListViewModelProtocol = UserListViewModelInput & UserListViewModelOutput
 ```
