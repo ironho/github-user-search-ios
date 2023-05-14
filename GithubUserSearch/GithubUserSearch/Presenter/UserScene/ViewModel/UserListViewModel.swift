@@ -16,8 +16,8 @@ protocol UserListViewModelInput {
     var useCase: UserListUseCase { get }
     
     func didSearch(string: String)
-    func loadPage()
     func loadNextPage()
+    func searchUsers()
 }
 
 protocol UserListViewModelOutput {
@@ -69,10 +69,14 @@ extension UserListViewModel {
         resetPages()
         query.accept(string)
         
-        loadPage()
+        searchUsers()
     }
     
-    func loadPage() {
+    func loadNextPage() {
+        searchUsers()
+    }
+    
+    func searchUsers() {
         isLoading.accept(true)
         useCase.searchUsers(accessToken: authorizationViewModel.accessToken.value, query: query.value, page: nextPage)
             .observe(on: MainScheduler.instance)
@@ -88,10 +92,6 @@ extension UserListViewModel {
                 self.isLoading.accept(false)
             })
             .disposed(by: rx.disposeBag)
-    }
-    
-    func loadNextPage() {
-        loadPage()
     }
     
 }
