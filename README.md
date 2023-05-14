@@ -48,3 +48,23 @@ url에 queryItems를 추가
 */
 func appending(_ parameters: [String: String?]) -> URL
 ```
+
+
+---
+## 사용한 Protocol
+
+- UserListRepositoryProtocol, UserListUseCaseProtocol
+```Swift
+// Github API search/Users 호출
+// https://docs.github.com/en/rest/search?apiVersion=2022-11-28#search-users
+func searchUsers(accessToken: String?, query: String, page: Int) -> Observable<SearchUsersResponse>
+```
+
+- AuthorizationRepositoryProtocol, AuthorizationUseCaseProtocol
+```Swift
+// Github API login/oauth/access_token 호출
+// https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#2-users-are-redirected-back-to-your-site-by-github
+
+func requestAccessToken(code: String) -> Observable<AccessToken>
+```
+```
