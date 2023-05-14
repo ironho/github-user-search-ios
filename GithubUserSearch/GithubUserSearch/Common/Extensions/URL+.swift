@@ -25,6 +25,12 @@ extension URL {
 // MARK: - func
 extension URL {
     
+    /**
+     url에 queryItems를 추가
+     
+     - parameters:
+        - parameters: queryItems에 추가할 dictionary array
+     */
     func appending(_ parameters: [String: String?]) -> URL {
         guard var urlComponents = URLComponents(string: absoluteString) else { return absoluteURL }
         var queryItems = urlComponents.queryItems ?? []
