@@ -49,16 +49,16 @@ struct UserListTargetType: TargetType {
     var task: Task { .requestParameters(parameters: parameters, encoding: URLEncoding.queryString) }
     var headers: [String: String]? {
         var _headers = ["accept": "application/vnd.github+json"]
-        if accessToken.isEmpty == false {
+        if let accessToken = accessToken {
             _headers["Authorization"] = "Bearer \(accessToken)"
         }
         return _headers
     }
     
-    var accessToken: String
+    var accessToken: String?
     var parameters: [String: String]
     
-    init(accessToken: String, query: String, page: Int) {
+    init(accessToken: String?, query: String, page: Int) {
         self.accessToken = accessToken
         self.parameters = ["q": query, "page": "\(page)"]
     }
