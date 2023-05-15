@@ -2,8 +2,18 @@
 Github OpenAPI로 사용자를 검색하는 iOS 앱입니다
 
 
+
+
 ---
-## 개발 stack
+## 목차
+1. 개발 stack
+2. 실행 방법
+3. 사용한 Extension
+4. 사용한 Protocol
+
+
+---
+## 1.  개발 stack
 - Minimum Target : iOS 13
 - Swift
 - SPM
@@ -17,7 +27,7 @@ Github OpenAPI로 사용자를 검색하는 iOS 앱입니다
 
 
 ---
-## 실행 방법
+## 2. 실행 방법
 ```bash
 cd path_to_project_folder/GithubUserSearch
 open GithubUserSearch.xcodeproj
@@ -25,7 +35,7 @@ open GithubUserSearch.xcodeproj
 
 
 ---
-## 사용한 Extension
+## 3. 사용한 Extension
 
 - UIScrollView+
 ```Swift
@@ -51,7 +61,7 @@ func appending(_ parameters: [String: String?]) -> URL
 
 
 ---
-## 사용한 Protocol
+## 4. 사용한 Protocol
 
 - UserListRepositoryProtocol, UserListUseCaseProtocol
 ```Swift
